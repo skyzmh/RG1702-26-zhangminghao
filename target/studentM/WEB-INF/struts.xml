@@ -1,0 +1,53 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<!DOCTYPE struts PUBLIC
+        "-//Apache Software Foundation//DTD Struts Configuration 2.5//EN"
+        "http://struts.apache.org/dtds/struts-2.5.dtd">
+
+<struts>
+    <package name="default" extends="struts-default" namespace="/">
+        <action name="hello">
+            <result name="success">success.jsp</result>
+            <result name="error">error.jsp</result>
+        </action>
+
+        <action name="StudentLogin" class="action.StudentAction" method="StudentLogin">
+            <result name = "success" >/student.jsp</result>
+            <result name = "error">/error.jsp</result>
+        </action>
+
+        <action name="AdminLogin" class="action.AdminAction" method="AdminLogin">
+            <result name = "success" type="chain">StuList</result>
+            <result name = "error">/error.jsp</result>
+        </action>
+
+        <action name="StuList" class="action.StudentAction" method="StuList">
+            <result name = "success">/student_query.jsp</result>
+            <result name = "error">/error.jsp</result>
+        </action>
+
+        <action name="StuSearch" class="action.StudentAction" method="StuSearch">
+            <result name = "success" >/student_query.jsp</result>
+            <result name = "error">/error.jsp</result>
+        </action>
+
+        <action name="StuUpdate" class="action.StudentAction" method="StuUpdate">
+            <result name = "success" type="chain">StuList</result>
+            <result name = "error">/error.jsp</result>
+        </action>
+
+        <action name="StuAdd" class="action.StudentAction" method="StuAdd">
+            <result name = "success" type="chain">StuList</result>
+            <result name = "error">/error.jsp</result>
+        </action>
+
+        <action name="StuDelete" class="action.StudentAction" method="StuDelete">
+            <result name = "success" type="chain">StuList</result>
+            <result name = "error">/error.jsp</result>
+        </action>
+
+
+
+
+    </package>
+</struts>
